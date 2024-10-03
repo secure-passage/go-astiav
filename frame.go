@@ -262,6 +262,14 @@ func (f *Frame) SetBestEffortTimestamp(v int64) {
 	f.c.best_effort_timestamp = C.int64_t(v)
 }
 
+func (f *Frame) TimeBase() Rational {
+	return newRationalFromC(f.c.time_base)
+}
+
+func (f *Frame) SetTimeBase(v Rational) {
+	f.c.time_base = v.c
+}
+
 func (f *Frame) UnsafePointer() unsafe.Pointer {
 	return unsafe.Pointer(f.c)
 }
