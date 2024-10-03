@@ -1,6 +1,6 @@
 package astiav
 
-//#include "codec_context.h"
+// #include "codec_context.h"
 import "C"
 import (
 	"sync"
@@ -338,6 +338,14 @@ func (cc *CodecContext) ExtraHardwareFrames() int {
 
 func (cc *CodecContext) SetExtraHardwareFrames(n int) {
 	cc.c.extra_hw_frames = C.int(n)
+}
+
+func (cc *CodecContext) PktTimeBase() Rational {
+	return newRationalFromC(cc.c.pkt_timebase)
+}
+
+func (cc *CodecContext) SetPktTimeBase(r Rational) {
+	cc.c.pkt_timebase = r.c
 }
 
 type CodecContextPixelFormatCallback func(pfs []PixelFormat) PixelFormat
