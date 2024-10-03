@@ -254,6 +254,14 @@ func (f *Frame) SetDuration(d int64) {
 	f.c.duration = C.int64_t(d)
 }
 
+func (f *Frame) BestEffortTimestamp() int64 {
+	return int64(f.c.best_effort_timestamp)
+}
+
+func (f *Frame) SetBestEffortTimestamp(v int64) {
+	f.c.best_effort_timestamp = C.int64_t(v)
+}
+
 func (f *Frame) UnsafePointer() unsafe.Pointer {
 	return unsafe.Pointer(f.c)
 }
