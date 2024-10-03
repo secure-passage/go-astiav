@@ -246,6 +246,14 @@ func (f *Frame) MoveRef(src *Frame) {
 	C.av_frame_move_ref(f.c, src.c)
 }
 
+func (f *Frame) Duration() int64 {
+	return int64(f.c.duration)
+}
+
+func (f *Frame) SetDuration(d int64) {
+	f.c.duration = C.int64_t(d)
+}
+
 func (f *Frame) UnsafePointer() unsafe.Pointer {
 	return unsafe.Pointer(f.c)
 }
