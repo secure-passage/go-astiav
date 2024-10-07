@@ -1,7 +1,7 @@
 package astiav
 
-//#include <libavutil/pixdesc.h>
-//#include <libavutil/pixfmt.h>
+// #include <libavutil/pixdesc.h>
+// #include <libavutil/pixfmt.h>
 import "C"
 
 // https://github.com/FFmpeg/FFmpeg/blob/n5.0/libavutil/pixfmt.h#L523
@@ -24,6 +24,9 @@ const (
 	ColorSpaceChromaDerivedNcl = ColorSpace(C.AVCOL_SPC_CHROMA_DERIVED_NCL)
 	ColorSpaceChromaDerivedCl  = ColorSpace(C.AVCOL_SPC_CHROMA_DERIVED_CL)
 	ColorSpaceIctcp            = ColorSpace(C.AVCOL_SPC_ICTCP)
+	ColorSpaceIptC2            = ColorSpace(C.AVCOL_SPC_IPT_C2)
+	ColorSpaceYchcoRe          = ColorSpace(C.AVCOL_SPC_YCGCO_RE)
+	ColorSpaceYchcoRo          = ColorSpace(C.AVCOL_SPC_YCGCO_RO)
 	ColorSpaceNb               = ColorSpace(C.AVCOL_SPC_NB)
 )
 
